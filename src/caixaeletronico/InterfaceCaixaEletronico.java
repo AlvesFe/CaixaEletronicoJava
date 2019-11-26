@@ -12,18 +12,24 @@ import javax.swing.JOptionPane;
  * @author crist
  */
 public class InterfaceCaixaEletronico extends javax.swing.JFrame {
-    
-    //Conta objConta = null;
+
+    Conta objConta = null;
     ContaEspecial objContaEspecial = null;
 
     /**
      * Creates new form InterfaceCaixaEletronico
      */
-    public InterfaceCaixaEletronico() {
+    public InterfaceCaixaEletronico(Conta objConta) {
         initComponents();
-        //this.objConta = new Conta(5000);
-        this.objContaEspecial = new ContaEspecial(5000,2500);
-                
+        this.objConta = objConta;
+        this.setLocationRelativeTo(null);
+
+    }
+
+    public InterfaceCaixaEletronico(ContaEspecial objEspecial) {
+        initComponents();
+        this.objContaEspecial = objEspecial;
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -76,12 +82,12 @@ public class InterfaceCaixaEletronico extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_deposito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_saque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_saldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,21 +109,20 @@ public class InterfaceCaixaEletronico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_saldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saldoActionPerformed
-        
+
         //txt_saida.setText(String.valueOf(objConta.verificarSaldo()));
         txt_saida.setText(objContaEspecial.verificarSaldoEspecial());
-        
+
     }//GEN-LAST:event_btn_saldoActionPerformed
 
     private void btn_saqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saqueActionPerformed
-        
-        
+
         /*double valor = Double.parseDouble(JOptionPane.showInputDialog("DIGITE UM VALOR DE SAQUE:"));
         txt_saida.setText(String.valueOf("SALDO ATUAL: " + objConta.verificarSaldo()));
         objConta.realizarSaque(valor);
         txt_saida.setText(String.valueOf("VALOR SACADO: " + valor));
         txt_saida.setText(String.valueOf("SALDO ATUAL: " + objConta.verificarSaldo()));
-        */
+         */
     }//GEN-LAST:event_btn_saqueActionPerformed
 
     private void btn_depositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_depositoActionPerformed
@@ -125,7 +130,7 @@ public class InterfaceCaixaEletronico extends javax.swing.JFrame {
         txt_saida.setText(String.valueOf("SALDO ATUAL: " + objConta.verificarSaldo()));
         objConta.realizarDeposito(valor);
         txt_saida.setText(String.valueOf("SALDO ATUAL: " + objConta.verificarSaldo()));
-        */
+         */
     }//GEN-LAST:event_btn_depositoActionPerformed
 
     /**
